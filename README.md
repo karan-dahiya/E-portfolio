@@ -4,7 +4,7 @@ Welcome to my ePortfolio repository! This repository contains the source code fo
 ### Technologies Used - HTML, CSS, Bootstrap
 
 ### Features:
--**Responsive design** for optimal viewing on various devices
+- **Responsive design** for optimal viewing on various devices
 + Easy navigation through different sections 
 * Clear presentation of projects, skills, and achievements
 
