@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale-1">
+	<title>karan_dahiya_lab04</title></head>
+<body>
+	<main class="container">
+		<h1>Contact Form</h1>
+		<p>Please fill in the form below. We will return your inquiry within 1-2 business days.</p>
+		<section id="contact-form">
+		<form id="contact-inquiry" action="https://118.compsci.cc/submit-form/" method="post">
+			<div>
+				<label for="first-name">First Name: </label>
+				<input id="first-name" type="text" name="first_name" placeholder="First Name" required autofocus>
+				
+				<label for="last-name"> Last Name: </label>
+				<input id="last-name" type="text" name="last_name" placeholder="Last Name" required>
+			</div>
+			<div>
+				<label for="mail-id">Email address: </label>
+				<input id="mail-id" type="email" name="mail_id" placeholder="Your Email" required>
+			</div>
+			<div>
+				<label for="phone-number">Phone Number: </label>
+				<input id="phone-number" type="tel" name="phone-number" placeholder="Phone number" required>
+			</div>
+		<h3>Contact Details</h3>
+			<div>
+				<label for="communication_type">Preferred Communication Type:</label>
+				<select id="communication_type" name="communication_type"> 
+					<option value="Phone">Phone</option>
+					<option value="Email">Email</option>
+					<option value="Text">Text(SMS)</option>
+				</select>
+			</div>
+		<h3>Request Type</h3>
+			<div>
+				<input type="checkbox" id="request_for_proposal" name="request_for_proposal" required>
+				<label for="request_for_proposal">Request for Proposal</label>
+				<select>
+					<option value ="">-- Choose --</option>
+					<option value="static-website">Static HTML/CSS Website</option>
+					<option value="dynamic-website">Dynamic HTML/CSS Website</option>
+					<option value="basic-wordpress">Basic WordPress Website</option>
+					<option value="e-commerce">E-Commerce Website</option>
+				</select>
+				<input type="number" min="1" max="500" name="proposed_website_pages" placeholder="#Pages">
+			</div>
+			<div>
+			<input type="checkbox" id="support_type" name="support_type" required>
+				<label for="support_type">Technical Support</label>
+				<select>
+					<option value ="">-- Choose --</option>
+					<option value="ui/ux">User Interface / User Experience</option>
+					<option value="errors">Errors</option>
+					<option value="search-engine-placement">Search Engine Placement</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+			<div>
+			<input type="checkbox" id="sales_inquiry_type" name="sales_inquiry_type" required>
+				<label for="sales_inquiry_type">Sales Questions</label>
+				<select>
+					<option value ="">-- Choose --</option>
+					<option value="website-creation">Website Creation</option>
+					<option value="seo">Search Engine Optimization</option>
+					<option value="webmastering">Webmastering</option>
+					<option value="hosting">Web Hosting</option>
+				</select>
+				<input type="number" min="1" max="100000" name="budget_total" placeholder="Budget">
+			</div>
+		<h3>Request Urgency</h3>
+			<div>
+			<input type="radio" name="speed" value="normal" id="normal_speed" checked>
+			<label for="normal_speed">Normal</label>
+			</div>
+			<div>
+			<input type="radio" name="speed" value="elevated" id="elevated_speed">
+			<label for="elevated_speed">Elevated</label>
+			</div>
+			<div>
+			<input type="radio" name="speed" value="high" id="high_urgency">
+			<label for="high_urgency">High Urgency</label>
+			</div>
+		<h3>Comments</h3>
+			<div>
+			<label for="comment">Please provide as much information as possible about your request:</label>
+			</div>
+			<div>
+			<textarea id="comment" rows="5"  cols="60" placeholder="Enter Comments Here"></textarea>
+			</div>
+			<div>
+				<button type="submit">Submit Now</button>
+			</div>
+		</form>
+		</section>
+	</main>
+</body>
+</html>
+			

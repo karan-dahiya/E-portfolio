@@ -1,0 +1,87 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package dahiyakaran_lab5_task2;
+import java.util.Scanner;
+
+ /* @author C0539776*/
+
+public class DahiyaKaran_lab5_task2 {
+
+    private static int tokenNumber; 
+    
+    public static void main(String[] args) {
+        int lotteryNumber = firstMethod();
+        tokenNumber = secondMethod();
+        int winner = thirdMethod(lotteryNumber, tokenNumber);
+        fourthMethod(winner);
+       
+    }
+    public static int firstMethod (){
+        
+       return (int)(Math.random()*100); /*Using this statement of generate a random lottery number */     
+    }
+    public static int secondMethod (){
+        
+       Scanner input = new Scanner (System.in);
+       System.out.println("Enter any number for lottery (0-100)");   /*Asking for input */
+       int tokenNumber = input.nextInt();
+       while 
+        (tokenNumber <= 0 || tokenNumber >= 100){  /* Ensuring the entered number is correct for lottery*/
+       System.out.println("Incorrect Input, Please enter number between 0 to 100 ");
+        tokenNumber = input.nextInt();
+       }
+       System.out.println();
+       System.out.println("Entered number for lottery ="+ tokenNumber ); 
+       System.out.println();
+       return tokenNumber;
+    }
+    public static int thirdMethod (int lotteryNumber, int tokenNumber){
+        
+       int lotNumberA = lotteryNumber / 10; /*Using this to get the number in ten's place in lottery*/
+       int lotNumberB = lotteryNumber % 10; /*Using this to get the number in one's place in lottery*/
+       
+       int tokenA = tokenNumber / 10; /*Using this to get the number in ten's place in entry*/
+       int tokenB = tokenNumber % 10; /*Using this to get the number in one's place in entry*/
+       
+       /*Comparing the lottery number and entered number*/
+       
+       if (tokenNumber == lotteryNumber){
+           return biggestPrize;
+       } else if ((lotNumberA == tokenB && lotNumberB == tokenB) || (lotNumberA == tokenB && lotNumberB == tokenA)){
+           return reversedDigitsPrize; 
+       } else if (lotNumberA == tokenA || lotNumberB == tokenB || lotNumberA == tokenB || lotNumberB == tokenA){
+           return singleDigitPrize;
+       } else {
+           return noPrize;
+        }
+    }
+    public static void fourthMethod (int winner){
+        switch (winner){
+            
+            case 10000:
+            System.out.println("Congratulations! You won biggest prize worth $10,000");
+               break;
+               
+            case 3000:
+            System.out.println("Congratulations! You won prize worth $3,000");
+            break;
+            
+            case 1000:
+            System.out.println("Congratulations! You won prize worth $1,000");
+            break;
+            
+            case 0:
+            System.out.println("Soory, but no digits match, No prize");
+            break;              
+        }
+    }
+                
+    public static final int biggestPrize = 10000;
+    public static final int reversedDigitsPrize = 3000;
+    public static final int singleDigitPrize = 1000;
+    public static final int noPrize = 0;
+    }
+       
+        

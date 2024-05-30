@@ -1,0 +1,230 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
+	font-size: 0.93rem;
+	padding: 0px;
+	margin: 0px;
+	background-color: #ffffff;
+}
+/* purple elements*/
+.bg-colored {
+	background-color: rgb(102, 38, 101);
+	color: #ffffff;
+}
+/* purple elements */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	overflow: hidden;
+	text-align: center;
+	width: 80%;
+}
+ul{
+	margin: 0%;
+	padding: 0;
+}
+header {
+	border-bottom: 3px solid #FFC0CB;
+	padding: 15px 0;
+}
+header a {
+	color: #ffffff;
+	text-decoration: none;
+	text-transform:uppercase;
+	font-size: 1rem;
+}
+header li {
+	padding: 0 20px;
+}
+header h1 {
+	margin: 0;
+	font-weight: normal;
+}
+header h1 .highlight,
+header .current a {
+	color: #FFC0CB
+}
+header nav {
+	margin-left: auto;
+	margin-right: auto;
+}
+header nav ul {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+nav a:hover {
+	color: #FFC0CB;
+}
+section#showcase {
+	min-height: 400px;
+	background-image: url('../images/bakery-hero-image-1920.jpg');
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	color: #ffffff;
+	display: flex;
+	flex-direction: row;
+}
+section#showcase .showcase-inner {
+	display: block;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+	display: flex;
+	flex-direction: row;
+}
+section#showcase .container {
+	flex-direction: column;
+}
+section#showcase h2 {
+	font-size: 4em;
+	font-weight: normal;
+	text-shadow: 0px 0px 30px #444;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+section#showcase p{
+	font-size: 1.25rem;
+}section#newsletter {
+	padding: 15px 0;
+}
+section#newsletter input {
+	padding: 4px;
+	height: 25px;
+	width: 250px;
+}
+section#newsletter form {
+	margin-left: auto;
+	margin-right: auto;
+}
+.button-1 {
+	height: 38px;
+	background-color: rgb(197, 26, 132);
+	border: none;
+	padding: 0 20px;
+	color: #ffffff;
+}
+section#boxes {
+	margin-top: 20px;
+}
+section#boxes .box{
+	padding: 10px;
+	text-align:center;
+}
+section#boxes .box img{
+	width: 90px;
+}
+footer {
+	padding: 20px;
+	margin-top: 20px;
+	color: #ffffff;
+	text-align: center;
+	background-color: rgb(197, 26, 132);
+}
+@media (min-width: 768px) {
+	section#showcase h2 {
+	font-size: 6em;
+}
+	textarea {
+	max-width: inherit;
+}
+	.container {
+	flex-direction: row;
+}
+	section#newsletter form {
+	margin-right: 0;
+}
+	aside {
+	margin-left: 3rem;
+	}
+}
+header .container { width: 100%; }
+header .container #branding { width: 80%; }
+
+nav {
+text-align: center;
+line-height: 70px;
+width: 100%;
+}
+
+header nav ul {
+display: none;
+}
+
+nav ul a {
+display: block;
+border-top: 1px solid #EAEAEB;
+margin: 0;
+}
+
+#toggle {
+display: none;
+}
+
+#toggle:checked ~ ul {
+display: block;
+}
+
+header li { padding: 0px; }
+
+header nav ul { margin-bottom: -15px; }
+
+nav label {
+font-size: 26px; 
+}
+
+@media only screen and (min-width: 768px) {
+
+nav { width: auto;  }
+nav label  { display: none; }
+
+header nav { margin-right: 0px; }
+
+header nav ul { 
+display: flex;
+flex-direction: row; 
+}
+
+nav ul a {
+border-top: 0px;
+margin: 0;
+padding: 0 10px;
+}
+
+header nav ul { margin-bottom: 0px; }
+
+header .container { width: 95%; }
+header .container #branding { width: auto; }
+
+}    
+
+@media only screen and (min-width: 1000px) {
+nav ul a {
+padding: 0 20px;
+}
+
+header .container { width: 80%; }
+}
+
+h1, h2, h3 {
+	font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;}
+
+.box .fa-birthday-cake {
+	font-size: 5em;
+color: rgb(197, 26, 132);}
+
+.box .fa-cuttlefish {
+	font-size: 5em;
+color: rgb(197, 26, 132);}
+	
+.box .fa-cookie {
+	font-size: 5em;
+color: rgb(197, 26, 132); }

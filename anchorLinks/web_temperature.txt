@@ -1,0 +1,94 @@
+#!/usr/bin/python
+
+import RPi.GPIO as GPIO
+import sys
+import temperature
+
+#
+# Replace the blank below with your device file
+#
+DEVICE_FILE = "/sys/devices/w1_bus_master1/10-000803271808/w1_slave"
+# should look something like: "/sys/devices/w1_bus_master1/10-0008032712f6/w1_slave"
+
+HTML_START = """
+<html>
+<head>
+    <meta http-equiv="refresh" content="5">
+    <title>Current Temperature</title>
+</head>
+<body>
+"""
+
+HTML_END = """
+</body>
+</html>
+"""
+
+# GPIO pin configuration
+RED_LED_PIN = 18
+GREEN_LED_PIN = 22
+YELLOW_LED_PIN = 27
+
+# GPIO setup
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(RED_LED_PIN, GPIO.OUT)
+GPIO.setup(GREEN_LED_PIN, GPIO.OUT)
+GPIO.setup(YELLOW_LED_PIN, GPIO.OUT)
+
+# Initialize previous temperature
+previous_temp = temperature.read_temp(DEVICE_FILE)
+
+def only_red_light():
+        GPIO.output(RED_LED_PIN, GPIO.HIGH)
+        GPIO.output(GREEN_LED_PIN, GPIO.LOW)
+        GPIO.output(YELLOW_LED_PIN, GPIO.LOW)
+        
+def only_green_light():
+        GPIO.output(RED_LED_PIN, GPIO.LOW)
+        GPIO.output(GREEN_LED_PIN, GPIO.HIGH)
+        GPIO.output(YELLOW_LED_PIN, GPIO.LOW)
+    
+def both_off_yellow_on():
+        GPIO.output(RED_LED_PIN, GPIO.LOW)
+        GPIO.output(GREEN_LED_PIN, GPIO.LOW)
+        GPIO.output(YELLOW_LED_PIN, GPIO.HIGH)
+    
+def control_leds(temperature, previous_temp):
+    if temperature > previous_temp:
+        only_red_light()
+    elif temperature < previous_temp:
+        only_green_light()
+    else:
+        both_off_yellow_on()
+
+def application(env, start_response):
+    global previous_temp  # Declare previous_temp as global
+
+    status = "200 OK"
+    headers = [("Content-type", "text/html")]
+    start_response(status, headers)
+
+    body = HTML_START
+
+    try:
+        temp = temperature.read_temp(DEVICE_FILE)
+        control_leds(temp, previous_temp)
+        body += str(temp)
+        body += f"<br>Previous Temperature: {previous_temp}"  # Include both current and previous temperatures
+        previous_temp = temp  # Update previous temperature
+
+    except Exception as details:
+        sys.stdout.write(str(details))
+        body += "Error\n" + str(details)
+
+    finally:
+        body += HTML_END
+
+    return [body.encode('UTF-8')]
+
+if __name__ == "__main__":
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        GPIO.cleanup()
